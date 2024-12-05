@@ -8,8 +8,8 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain{
-		languageVersion = JavaLanguageVersion.of(21)
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21) // Java 21
 	}
 }
 
@@ -18,18 +18,35 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.apache.poi:poi:5.2.3'
-	implementation 'org.apache.poi:poi-scratchpad:5.2.3'
+	// Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.0'
-	implementation 'com.fasterxml.jackson.core:jackson-databind'
-	implementation 'org.json:json:20210307'
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Elasticsearch Java Client
+	implementation 'co.elastic.clients:elasticsearch-java:8.10.4'
+
+	// HTTP Client
+	implementation 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
+
+	// JSON 처리
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
 	implementation 'kr.dogfoot:hwplib:1.1.4'
+
+	// HWP Library
+	implementation 'kr.dogfoot:hwplib:1.1.4'
+
+	// JSON Handling
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'com.google.code.gson:gson:2.10.1'
+
+	// OpenAI API Integration
+	implementation 'org.apache.httpcomponents.client5:httpclient5:5.2'
 	implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-	implementation 'com.google.firebase:firebase-admin:9.1.1'
-	implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 tasks.named('test') {
